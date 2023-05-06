@@ -1,0 +1,28 @@
+---
+# tasks file for prepare-disk
+- name: create {{ data_path }} directory
+  file:
+    path: "{{ data_path }}"
+    state: directory
+    owner: root
+    group: root
+    mode: '0751'
+
+- name: create a new primary partition
+  parted:
+    device: "{{ disk_name }}"
+    number: "{{ partition }}"
+    state: present
+    label: "gpt"
+
+- name: create fs on {{ disk_name }}{{ partition }}
+  filesystem:
+     fstype: "{{ filesystem }}"
+     dev: "{{ disk_name }}{{ partition }}"
+
+- name: mount partition to {{ data_path }}
+  mount:
+    fstype: "{{ filesystem }}"
+    src: "{{ disk_name }}{{ partition }}"
+    path: "{{ data_path }}"
+    state: mounted

@@ -1,0 +1,8 @@
+---
+- name: configure webserver
+  hosts: ngx-webserver
+  become: true
+
+  roles:
+  - install-nginx
+  - prepare-disk

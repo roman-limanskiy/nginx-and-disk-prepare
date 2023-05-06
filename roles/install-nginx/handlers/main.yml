@@ -1,0 +1,10 @@
+---
+# handlers file for install-nginx
+
+- name: reenable nginx service
+  command: systemctl reenable nginx.service
+
+- name: restart nginx
+  service:
+    name: nginx
+    state: restarted

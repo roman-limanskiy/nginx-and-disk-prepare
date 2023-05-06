@@ -1,0 +1,5 @@
+---
+# vars file for install-nginx
+nginx_repository: "https://example.com/registry/nginx_1.0.0"
+nginx_name: "nginx"
+nginx_conf_dir: "/etc/nginx"

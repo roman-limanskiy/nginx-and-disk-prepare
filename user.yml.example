@@ -1,0 +1,25 @@
+---
+- name: create user
+  hosts: all
+  become: true
+
+  tasks:
+    - name: create new user
+      user:
+        name: username
+
+    - name: create .ssh folder
+      file:
+        path: /home/username/.ssh/
+        state: directory
+        owner: username
+        group: groupname
+        mode: 0700
+
+    - name: upload SSH key
+      copy:
+        src: path-to-key
+        dest: /home/username/.ssh/authorized_keys
+        owner: username
+        group: groupname
+        mode: 0600

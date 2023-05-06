@@ -1,0 +1,5 @@
+nginx_user: "nginx"
+nginx_group: "nginx"
+filesystem: "xfs"
+data_path: "/data"
+partition: 1

@@ -1,0 +1,10 @@
+[defaults]
+inventory = ./inventory
+remote_user = username
+private_key_file = path-to-key
+host_key_checking = False
+retry_files_enabled = False
+
+[diff]
+always = True
+context = 5

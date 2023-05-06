@@ -1,0 +1,2 @@
+nginx_repository: "https://example.com/registry/nginx_3.0.0"
+disk_name: "/dev/sdd"
